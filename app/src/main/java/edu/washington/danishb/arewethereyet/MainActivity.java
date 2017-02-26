@@ -59,11 +59,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    protected void onDestroy(){
-        AlarmManager manager = (AlarmManager) MainActivity.this.getSystemService(ALARM_SERVICE);
-        manager.cancel(toSend);
-        super.onDestroy();
-    }
 }
