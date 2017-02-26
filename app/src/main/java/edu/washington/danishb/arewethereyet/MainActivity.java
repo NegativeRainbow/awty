@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Button button = (Button) findViewById(R.id.button);
+
         button.setOnClickListener(new View.OnClickListener() {
             AlarmManager manager = (AlarmManager) MainActivity.this.getSystemService(ALARM_SERVICE);
             @Override
@@ -57,5 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onDestroy(){
+        AlarmManager manager = (AlarmManager) MainActivity.this.getSystemService(ALARM_SERVICE);
+        manager.cancel(toSend);
+        super.onDestroy();
     }
 }
